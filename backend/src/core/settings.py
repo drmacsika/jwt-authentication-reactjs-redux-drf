@@ -42,9 +42,13 @@ INSTALLED_APPS = [
     "rest_framework",
     "djoser",
     "accounts",
+    "corsheaders",
+    "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
 ]
 
 MIDDLEWARE = [
+    "social_django.middleware.SocialAuthExceptionMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -67,6 +71,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -133,6 +139,12 @@ AUTH_USER_MODEL = "accounts.UserAccount"
 # LOGOUT_URL = 'accounts:logout'
 # LOGOUT_REDIRECT_URL = 'home'
 # SIGNUP_REDIRECT_URL = 'accounts:email_verification_sent'
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
 
 
 STATIC_URL = "/static/"

@@ -21,34 +21,34 @@ const Login = ({ login, isAuthenticated }) => {
     login(email, password);
   };
 
-  //   const continueWithGoogle = async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         `${process.env.REACT_APP_API_URL}/auth/o/google-oauth2/?redirect_uri=${process.env.REACT_APP_API_URL}/google`
-  //       );
+  const continueWithGoogle = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/auth/o/google-oauth2/?redirect_uri=${process.env.REACT_APP_API_URL}/google`
+      );
 
-  //       window.location.replace(res.data.authorization_url);
-  //     } catch (err) {}
-  //   };
+      window.location.replace(res.data.authorization_url);
+    } catch (err) {}
+  };
 
-  //   const continueWithFacebook = async () => {
-  //     try {
-  //       const res = await axios.get(
-  //         `${process.env.REACT_APP_API_URL}/auth/o/facebook/?redirect_uri=${process.env.REACT_APP_API_URL}/facebook`
-  //       );
+  const continueWithFacebook = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/auth/o/facebook/?redirect_uri=${process.env.REACT_APP_API_URL}/facebook`
+      );
 
-  //       window.location.replace(res.data.authorization_url);
-  //     } catch (err) {}
-  //   };
+      window.location.replace(res.data.authorization_url);
+    } catch (err) {}
+  };
 
-  //   if (isAuthenticated) {
-  //     return <Redirect to="/" />;
-  //   }
+  if (isAuthenticated) {
+    return <Redirect to="/" />;
+  }
 
   return (
     <div className="container mt-5">
       <h1>Sign In</h1>
-      <p>Sign into your Account</p>
+      <p>Sign into your Account Test</p>
       <form onSubmit={(e) => onSubmit(e)}>
         <div className="form-group">
           <input
@@ -77,13 +77,13 @@ const Login = ({ login, isAuthenticated }) => {
           Login
         </button>
       </form>
-      {/* <button className="btn btn-danger mt-3" onClick={continueWithGoogle}>
+      <button className="btn btn-danger mt-3" onClick={continueWithGoogle}>
         Continue With Google
       </button>
       <br />
       <button className="btn btn-primary mt-3" onClick={continueWithFacebook}>
         Continue With Facebook
-      </button> */}
+      </button>
       <p className="mt-3">
         Don't have an account? <Link to="/signup">Sign Up</Link>
       </p>
@@ -94,8 +94,8 @@ const Login = ({ login, isAuthenticated }) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   // isAuthenticated: state.auth.isAuthenticated
-// });
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
 
-export default Login; //connect(mapStateToProps, { login })
+export default connect(mapStateToProps, { login })(Login);
