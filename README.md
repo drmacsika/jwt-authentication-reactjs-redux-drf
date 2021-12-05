@@ -48,3 +48,8 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "[YOUR GOOGLE OAUTH2 API SECRET]"
 
 SOCIAL_AUTH_FACEBOOK_KEY = "[YOUR FACEBOOK API KEY]"
 SOCIAL_AUTH_FACEBOOK_SECRET = "[YOUR FACEBOOK API SECRET]"
+
+## Contact Info
+
+If you have any question or want to reach me directly, 
+[Contact Nsikak Imoh](https://nsikakimoh.com).
